@@ -3,7 +3,7 @@ using Xamarin.Forms;
 using System.Globalization;
 using System.Reflection;
 
-namespace SpesaSicura
+namespace TitiusLabs.Xamarin.Core.Converters
 {
 	public class ImageConverter : IValueConverter
 	{

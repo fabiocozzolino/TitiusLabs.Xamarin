@@ -1,13 +1,11 @@
 ﻿using System;
 using Xamarin.Forms;
-using System.Collections;
-using System.Linq;
 
 namespace SpesaSicura
 {
-	public class NoVisibilityConverter : IValueConverter
+	public class StringToColorConverter : IValueConverter
 	{
-		public NoVisibilityConverter ()
+		public StringToColorConverter ()
 		{
 		}
 
@@ -15,17 +13,20 @@ namespace SpesaSicura
 
 		public object Convert (object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
 		{
-			var visibilityConverter = new VisibilityConverter ();
-			return !(bool)visibilityConverter.Convert (value, targetType, parameter, culture);
+			try {
+				var converter = new ColorTypeConverter ();
+				return (Color)converter.ConvertFromInvariantString (value.ToString().Trim());
+			} catch (Exception) {
+				return Color.Transparent;
+			}
 		}
 
 		public object ConvertBack (object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
 		{
-			return null;
+			throw new NotImplementedException ();
 		}
 
 		#endregion
 	}
-
 }
 

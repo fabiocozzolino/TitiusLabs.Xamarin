@@ -4,9 +4,8 @@ using System.Collections;
 using System.Linq;
 using System.Globalization;
 
-namespace SpesaSicura
+namespace TitiusLabs.Xamarin.Core.Converters
 {
-
 	public class DateFormatConverter : IValueConverter
 	{
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
