@@ -1,6 +1,6 @@
-using ViewModels;
+using TitiusLabs.Xamarin.Forms.ViewModels;
 
-namespace TitiusLabs.Xamarin.Core
+namespace TitiusLabs.Xamarin.Forms.Views
 {
 	public interface IView
 	{

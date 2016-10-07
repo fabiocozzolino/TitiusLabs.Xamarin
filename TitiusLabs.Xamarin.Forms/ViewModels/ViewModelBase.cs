@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace ViewModels
+namespace TitiusLabs.Xamarin.Forms.ViewModels
 {
 	public class ViewModelBase : INotifyPropertyChanged
 	{
