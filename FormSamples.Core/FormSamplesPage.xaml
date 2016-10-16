@@ -4,7 +4,7 @@
 		xmlns:controls="clr-namespace:TitiusLabs.Forms.Controls;assembly:TitiusLabs.Forms" 
 		xmlns:local="clr-namespace:FormSamples" 
 		x:Class="FormSamples.Core.FormSamplesPage">
-	<StackLayout x:Name="Body">
+	<StackLayout x:Name="Body" Padding="20">
 		<Label Text="Welcome to Xamarin Forms!" VerticalOptions="Center" HorizontalOptions="Center" />
 	</StackLayout>
 </ContentPage>
