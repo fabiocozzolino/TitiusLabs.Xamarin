@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TitiusLabs.Forms.iOS", "Tit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormSamples.Core", "FormSamples.Core\FormSamples.Core.csproj", "{EF67EF70-9711-4D59-A595-DF2CC224AA1E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TitiusLabs.Forms.Droid", "TitiusLabs.Forms.Droid\TitiusLabs.Forms.Droid.csproj", "{382BF38D-8689-4686-B269-C183F0CA49F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,18 @@ Global
 		{EF67EF70-9711-4D59-A595-DF2CC224AA1E}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{EF67EF70-9711-4D59-A595-DF2CC224AA1E}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{EF67EF70-9711-4D59-A595-DF2CC224AA1E}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{382BF38D-8689-4686-B269-C183F0CA49F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{382BF38D-8689-4686-B269-C183F0CA49F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{382BF38D-8689-4686-B269-C183F0CA49F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{382BF38D-8689-4686-B269-C183F0CA49F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{382BF38D-8689-4686-B269-C183F0CA49F1}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{382BF38D-8689-4686-B269-C183F0CA49F1}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{382BF38D-8689-4686-B269-C183F0CA49F1}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{382BF38D-8689-4686-B269-C183F0CA49F1}.Release|iPhone.Build.0 = Release|Any CPU
+		{382BF38D-8689-4686-B269-C183F0CA49F1}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{382BF38D-8689-4686-B269-C183F0CA49F1}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{382BF38D-8689-4686-B269-C183F0CA49F1}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{382BF38D-8689-4686-B269-C183F0CA49F1}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2B9C3C99-AAC5-4845-B4C6-7B3744375F6F} = {2748CEA2-0536-4B71-A4A3-77C0AE0A0CAC}
