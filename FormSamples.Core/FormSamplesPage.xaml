@@ -17,6 +17,7 @@
 				<DataTemplate>
 					<ViewCell>
 						<StackLayout Padding="5">
+							<Label Text="{Binding Name}" />
 							<!--<controls:ImageCircle 
 								Source="{Binding Image}" 
 								HeightRequest="80" 

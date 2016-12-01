@@ -2,6 +2,7 @@
 
 using Xamarin.Forms;
 using System.Collections;
+using System.Windows.Input;
 
 namespace TitiusLabs.Forms.Controls
 {
@@ -27,6 +28,26 @@ namespace TitiusLabs.Forms.Controls
 
 		public event EventHandler<ItemTappedEventArgs> ItemTapped;
 
+
+		public static readonly BindableProperty CommandProperty =
+			BindableProperty.Create("Command", typeof(ICommand), typeof(TLScrollView), null);
+
+		public ICommand Command
+		{
+			get { return (ICommand)GetValue(CommandProperty); }
+			set { SetValue(CommandProperty, value); }
+		}
+
+		public static readonly BindableProperty CommandParameterProperty =
+			BindableProperty.Create("CommandParameter", typeof(object), typeof(TLScrollView), null);
+
+		public object CommandParameter
+		{
+			get { return GetValue(CommandParameterProperty); }
+			set { SetValue(CommandParameterProperty, value); }
+		}
+
+
 		public TLScrollView()
 		{
 			this.PropertyChanged += TLScrollView_PropertyChanged;
@@ -50,17 +71,21 @@ namespace TitiusLabs.Forms.Controls
 
 			foreach (var item in this.ItemsSource)
 			{
+				var command = Command ?? new Command((obj) =>
+				{
+					var args = new ItemTappedEventArgs(ItemsSource, item);
+					ItemTapped?.Invoke(this, args);
+				});
+
 				var viewCell = this.ItemTemplate.CreateContent() as ViewCell;
 				viewCell.View.BindingContext = item;
 				viewCell.View.GestureRecognizers.Add(new TapGestureRecognizer
 				{
-					Command = new Command((obj) =>
-					{
-						var args = new ItemTappedEventArgs(ItemsSource, item);
-						ItemTapped?.Invoke(this, args);
-					}),
+					Command = command,
+					CommandParameter = CommandParameter,
 					NumberOfTapsRequired = 1
 				});
+
 				layout.Children.Add(viewCell.View);
 			}
 
