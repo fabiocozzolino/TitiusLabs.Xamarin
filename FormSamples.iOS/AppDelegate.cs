@@ -6,6 +6,7 @@ using Foundation;
 using TitiusLabs.Forms.iOS.Controls;
 using UIKit;
 using FormSamples.Core;
+using TitiusLabs.Forms.Controls;
 
 namespace FormSamples.iOS
 {
@@ -17,7 +18,6 @@ namespace FormSamples.iOS
 			global::Xamarin.Forms.Forms.Init();
 
 			LoadApplication(new App());
-			var ttt = new TLEntryRenderer();
 			return base.FinishedLaunching(app, options);
 		}
 	}

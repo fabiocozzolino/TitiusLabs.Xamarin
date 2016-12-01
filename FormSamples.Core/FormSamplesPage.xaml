@@ -5,6 +5,26 @@
 		xmlns:local="clr-namespace:FormSamples" 
 		x:Class="FormSamples.Core.FormSamplesPage">
 	<StackLayout x:Name="Body" Padding="20">
-		<Label Text="Welcome to Xamarin Forms!" VerticalOptions="Center" HorizontalOptions="Center" />
+		<Label Text="Welcome to Xamarin Forms!"
+				IsVisible="{Binding IsVisible}"
+			VerticalOptions="Center" HorizontalOptions="Center" />
+		<controls:TLScrollView 
+				Orientation="Horizontal" 
+				ItemsSource="{Binding Items}" 
+				ItemTapped="Handle_ItemTapped"
+				HeightRequest="100">
+			<controls:TLScrollView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<StackLayout Padding="5">
+							<!--<controls:ImageCircle 
+								Source="{Binding Image}" 
+								HeightRequest="80" 
+								WidthRequest="80" />-->
+						</StackLayout>
+					</ViewCell>
+				</DataTemplate>
+			</controls:TLScrollView.ItemTemplate>
+		</controls:TLScrollView>
 	</StackLayout>
 </ContentPage>
