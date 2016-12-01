@@ -50,7 +50,7 @@ namespace TitiusLabs.Forms.Controls
 
 		public TLScrollView()
 		{
-			this.PropertyChanged += TLScrollView_PropertyChanged;
+			PropertyChanged += TLScrollView_PropertyChanged;
 		}
 
 		void TLScrollView_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -63,13 +63,13 @@ namespace TitiusLabs.Forms.Controls
 
 		void ReloadSource()
 		{
-			if (this.ItemTemplate == null || this.ItemsSource == null)
+			if (ItemTemplate == null || ItemsSource == null)
 				return;
 
 			var layout = new StackLayout();
-			layout.Orientation = this.Orientation == ScrollOrientation.Vertical ? StackOrientation.Vertical : StackOrientation.Horizontal;
+			layout.Orientation = Orientation == ScrollOrientation.Vertical ? StackOrientation.Vertical : StackOrientation.Horizontal;
 
-			foreach (var item in this.ItemsSource)
+			foreach (var item in ItemsSource)
 			{
 				var command = Command ?? new Command((obj) =>
 				{
@@ -77,7 +77,7 @@ namespace TitiusLabs.Forms.Controls
 					ItemTapped?.Invoke(this, args);
 				});
 
-				var viewCell = this.ItemTemplate.CreateContent() as ViewCell;
+				var viewCell = ItemTemplate.CreateContent() as ViewCell;
 				viewCell.View.BindingContext = item;
 				viewCell.View.GestureRecognizers.Add(new TapGestureRecognizer
 				{
@@ -89,7 +89,7 @@ namespace TitiusLabs.Forms.Controls
 				layout.Children.Add(viewCell.View);
 			}
 
-			this.Content = layout;
+			Content = layout;
 		}
 	}
 }

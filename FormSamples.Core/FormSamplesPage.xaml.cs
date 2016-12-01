@@ -60,6 +60,8 @@ namespace FormSamples.Core
 
 		public MyViewModel()
 		{
+			var t = new TLScrollView();
+			
 			this.IsVisible = false;
 			this.Items = new Item[] {
 				new Item{Image = "http://www.clubparadiso.it/upload/CONF66/20150909/Green_Island_Resort_Barriera_corallina-tSa-80X80.jpg", Name="Barriera Corallina" },

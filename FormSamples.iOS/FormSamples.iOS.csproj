@@ -122,21 +122,21 @@
     <Compile Include="AppDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TitiusLabs.Forms\TitiusLabs.Forms.csproj">
-      <Project>{525A9025-BEF6-42F3-ABA5-D01E8703C4B7}</Project>
-      <Name>TitiusLabs.Forms</Name>
+    <ProjectReference Include="..\FormSamples.Core\FormSamples.Core.csproj">
+      <Project>{EF67EF70-9711-4D59-A595-DF2CC224AA1E}</Project>
+      <Name>FormSamples.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\TitiusLabs.Core\TitiusLabs.Core.csproj">
       <Project>{7242D6E0-C5F3-48A4-BE98-2A95B87CDEB0}</Project>
       <Name>TitiusLabs.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TitiusLabs.Forms\TitiusLabs.Forms.csproj">
+      <Project>{525A9025-BEF6-42F3-ABA5-D01E8703C4B7}</Project>
+      <Name>TitiusLabs.Forms</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TitiusLabs.Forms.iOS\TitiusLabs.Forms.iOS.csproj">
       <Project>{D87AF2C6-6A47-42AA-8854-D671E74BB80A}</Project>
       <Name>TitiusLabs.Forms.iOS</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FormSamples.Core\FormSamples.Core.csproj">
-      <Project>{EF67EF70-9711-4D59-A595-DF2CC224AA1E}</Project>
-      <Name>FormSamples.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

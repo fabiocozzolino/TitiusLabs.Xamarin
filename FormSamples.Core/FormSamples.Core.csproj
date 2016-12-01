@@ -41,16 +41,6 @@
     <EmbeddedResource Include="FormSamplesPage.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TitiusLabs.Forms\TitiusLabs.Forms.csproj">
-      <Project>{525A9025-BEF6-42F3-ABA5-D01E8703C4B7}</Project>
-      <Name>TitiusLabs.Forms</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TitiusLabs.Core\TitiusLabs.Core.csproj">
-      <Project>{7242D6E0-C5F3-48A4-BE98-2A95B87CDEB0}</Project>
-      <Name>TitiusLabs.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
       <HintPath>..\packages\Xamarin.Forms.2.3.3.168\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
@@ -63,6 +53,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TitiusLabs.Forms\TitiusLabs.Forms.csproj">
+      <Project>{525A9025-BEF6-42F3-ABA5-D01E8703C4B7}</Project>
+      <Name>TitiusLabs.Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TitiusLabs.Core\TitiusLabs.Core.csproj">
+      <Project>{7242D6E0-C5F3-48A4-BE98-2A95B87CDEB0}</Project>
+      <Name>TitiusLabs.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.3.168\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.3.168\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
