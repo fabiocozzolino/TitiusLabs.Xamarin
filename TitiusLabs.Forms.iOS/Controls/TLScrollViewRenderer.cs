@@ -14,7 +14,7 @@ namespace TitiusLabs.Forms.iOS.Controls
 			base.OnElementChanged(e);
 
 			var element = e.NewElement as TLScrollView;
-			element.Render();
+			element?.Render();
 		}
 	}
 }
