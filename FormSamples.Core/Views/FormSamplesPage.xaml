@@ -18,11 +18,10 @@
 				<DataTemplate>
 					<ViewCell>
 						<StackLayout Padding="5">
-							<Label Text="{Binding Name}" />
-							<!--<controls:ImageCircle 
+							<controls:TLImageCircle 
 								Source="{Binding Image}" 
 								HeightRequest="80" 
-								WidthRequest="80" />-->
+								WidthRequest="80" />
 						</StackLayout>
 					</ViewCell>
 				</DataTemplate>

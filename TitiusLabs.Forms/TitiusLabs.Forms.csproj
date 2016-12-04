@@ -38,6 +38,7 @@
     <Compile Include="Controls\TLEntry.cs" />
     <Compile Include="Controls\ReturnButtonType.cs" />
     <Compile Include="Controls\TLScrollView.cs" />
+    <Compile Include="Controls\TLImageCircle.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />
