@@ -3,7 +3,7 @@ using Xamarin.Forms;
 
 namespace TitiusLabs.Forms.Controls
 {
-	public class TLEntry : Xamarin.Forms.Entry
+	public class TLEntry : Entry
 	{
 		public static readonly BindableProperty ReturnButtonProperty = 
 			BindableProperty.Create("ReturnButton", typeof(ReturnButtonType), typeof(TLEntry), ReturnButtonType.None);

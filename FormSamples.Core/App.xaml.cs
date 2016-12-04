@@ -1,4 +1,5 @@
 ﻿using Xamarin.Forms;
+using FormSamples.Core.Views;
 
 namespace FormSamples.Core
 {

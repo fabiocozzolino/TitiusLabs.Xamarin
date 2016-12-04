@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-		xmlns:controls="clr-namespace:TitiusLabs.Forms.Controls;assembly:TitiusLabs.Forms" 
+		xmlns:controls="clr-namespace:TitiusLabs.Forms.Controls;assembly=TitiusLabs.Forms" 
 		xmlns:local="clr-namespace:FormSamples" 
-		x:Class="FormSamples.Core.FormSamplesPage">
-	<StackLayout x:Name="Body" Padding="20">
+		x:Class="FormSamples.Core.Views.FormSamplesPage">
+	<StackLayout Padding="20">
 		<Label Text="Welcome to Xamarin Forms!"
 				IsVisible="{Binding IsVisible}"
 			VerticalOptions="Center" HorizontalOptions="Center" />
 		<controls:TLScrollView 
 				Orientation="Horizontal" 
 				ItemsSource="{Binding Items}" 
-				ItemTapped="Handle_ItemTapped"
+				ItemSelected="Handle_ItemSelected"
+				SelectedCommand="{Binding [ItemSelected]}"
 				HeightRequest="100">
 			<controls:TLScrollView.ItemTemplate>
 				<DataTemplate>
@@ -27,5 +28,7 @@
 				</DataTemplate>
 			</controls:TLScrollView.ItemTemplate>
 		</controls:TLScrollView>
+		<Label Text="{Binding SelectedItem.Name}"
+			VerticalOptions="Center" HorizontalOptions="Center" />
 	</StackLayout>
 </ContentPage>

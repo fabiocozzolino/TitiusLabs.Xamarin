@@ -77,7 +77,8 @@ namespace TitiusLabs.Forms.ViewModels
 		{
 			get
 			{
-				return commands[name];
+				var cmd = commands[name];
+				return cmd;
 			}
 		}
 	}

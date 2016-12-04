@@ -26,42 +26,27 @@ namespace TitiusLabs.Forms.Controls
 			set { SetValue(ItemTemplateProperty, value); }
 		}
 
-		public event EventHandler<ItemTappedEventArgs> ItemTapped;
+		public event EventHandler<ItemTappedEventArgs> ItemSelected;
 
+		public static readonly BindableProperty SelectedCommandProperty =
+			BindableProperty.Create("SelectedCommand", typeof(ICommand), typeof(TLScrollView), null);
 
-		public static readonly BindableProperty CommandProperty =
-			BindableProperty.Create("Command", typeof(ICommand), typeof(TLScrollView), null);
-
-		public ICommand Command
+		public ICommand SelectedCommand
 		{
-			get { return (ICommand)GetValue(CommandProperty); }
-			set { SetValue(CommandProperty, value); }
+			get { return (ICommand)GetValue(SelectedCommandProperty); }
+			set { SetValue(SelectedCommandProperty, value); }
 		}
 
-		public static readonly BindableProperty CommandParameterProperty =
-			BindableProperty.Create("CommandParameter", typeof(object), typeof(TLScrollView), null);
+		public static readonly BindableProperty SelectedCommandParameterProperty =
+			BindableProperty.Create("SelectedCommandParameter", typeof(object), typeof(TLScrollView), null);
 
-		public object CommandParameter
+		public object SelectedCommandParameter
 		{
-			get { return GetValue(CommandParameterProperty); }
-			set { SetValue(CommandParameterProperty, value); }
+			get { return GetValue(SelectedCommandParameterProperty); }
+			set { SetValue(SelectedCommandParameterProperty, value); }
 		}
 
-
-		public TLScrollView()
-		{
-			PropertyChanged += TLScrollView_PropertyChanged;
-		}
-
-		void TLScrollView_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-		{
-			if (e.PropertyName == "ItemsSource" || e.PropertyName == "ItemTemplate")
-			{
-				ReloadSource();
-			}
-		}
-
-		void ReloadSource()
+		public void Render()
 		{
 			if (ItemTemplate == null || ItemsSource == null)
 				return;
@@ -71,18 +56,19 @@ namespace TitiusLabs.Forms.Controls
 
 			foreach (var item in ItemsSource)
 			{
-				var command = Command ?? new Command((obj) =>
+				var command = SelectedCommand ?? new Command((obj) =>
 				{
 					var args = new ItemTappedEventArgs(ItemsSource, item);
-					ItemTapped?.Invoke(this, args);
+					ItemSelected?.Invoke(this, args);
 				});
+				var commandParameter = SelectedCommandParameter ?? item;
 
 				var viewCell = ItemTemplate.CreateContent() as ViewCell;
 				viewCell.View.BindingContext = item;
 				viewCell.View.GestureRecognizers.Add(new TapGestureRecognizer
 				{
 					Command = command,
-					CommandParameter = CommandParameter,
+					CommandParameter = commandParameter,
 					NumberOfTapsRequired = 1
 				});
 
