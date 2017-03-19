@@ -63,6 +63,7 @@
     <Compile Include="Controls\TLEntryRenderer.cs" />
     <Compile Include="Controls\TLScrollViewRenderer.cs" />
     <Compile Include="Controls\TLImageCircleRenderer.cs" />
+    <Compile Include="Controls\TLImageCropRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TitiusLabs.Forms\TitiusLabs.Forms.csproj">
