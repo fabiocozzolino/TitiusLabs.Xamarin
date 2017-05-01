@@ -18,8 +18,6 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <MtouchUseSGen>true</MtouchUseSGen>
-    <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
@@ -30,8 +28,6 @@
     <DefineConstants></DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <MtouchUseSGen>true</MtouchUseSGen>
-    <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
@@ -64,6 +60,7 @@
     <Compile Include="Controls\TLScrollViewRenderer.cs" />
     <Compile Include="Controls\TLImageCircleRenderer.cs" />
     <Compile Include="Controls\TLImageCropRenderer.cs" />
+    <Compile Include="Controls\RoundedBoxRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TitiusLabs.Forms\TitiusLabs.Forms.csproj">

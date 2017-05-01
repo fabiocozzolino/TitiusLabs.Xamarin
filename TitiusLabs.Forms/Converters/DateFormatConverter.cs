@@ -15,7 +15,10 @@ namespace TitiusLabs.Forms.Converters
 			DateTime d;
 			if (DateTime.TryParse(value.ToString(), out d))
 			{
-				return d.ToString("dd/MM/yyyy");
+				var format = "dd/MM/yyyy";
+				if (parameter != null)
+					format = parameter.ToString();
+				return d.ToString(format);
 			}
 
 			return "";
