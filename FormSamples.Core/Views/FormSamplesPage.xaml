@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:vm="clr-namespace:FormSamples.Core.ViewModels" 
 		xmlns:controls="clr-namespace:TitiusLabs.Forms.Controls;assembly=TitiusLabs.Forms" 
 		xmlns:local="clr-namespace:FormSamples" 
 		x:Class="FormSamples.Core.Views.FormSamplesPage">
+
+	<ContentPage.BindingContext>
+		<vm:FormSamplesViewModel />
+	</ContentPage.BindingContext>
+	
 	<StackLayout Padding="20">
 		<Label Text="Welcome to Xamarin Forms!"
 				IsVisible="{Binding IsVisible}"
@@ -27,7 +33,34 @@
 				</DataTemplate>
 			</controls:TLScrollView.ItemTemplate>
 		</controls:TLScrollView>
-		<Label Text="{Binding SelectedItem.Name}"
-			VerticalOptions="Center" HorizontalOptions="Center" />
+        
+		<Label Text="{Binding SelectedItem.Name}" 
+			VerticalOptions="Center" HorizontalOptions="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding MyCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Button Text="My Button" Command="{Binding MyCommand}"  />
+
+		<Button Text="Speak" Command="{Binding [Speak]}" CommandParameter="{Binding SelectedItem.Name}" />
+		<controls:RoundedBox 
+			CornerRadius="10" 
+			BorderColor="Black"
+			BorderWidth="0.5"
+			WidthRequest="40"
+			HeightRequest="40" 
+			HorizontalOptions="Center">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="15"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+				<StackLayout BackgroundColor="Red" Grid.Row="0" Padding="0">
+					<Label Margin="0" Text="LUG" FontSize="10" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" />
+				</StackLayout>
+				<Label Margin="0" Grid.Row="1" Text="24" FontSize="15" HorizontalOptions="Center" VerticalOptions="Center" />
+			</Grid>
+		</controls:RoundedBox>
 	</StackLayout>
 </ContentPage>

@@ -3,15 +3,25 @@
 using Xamarin.Forms;
 using System.Collections;
 using System.Windows.Input;
+using System.Collections.ObjectModel;
+using System.Reflection;
+using System.Collections.Specialized;
+using System.Linq;
 
 namespace TitiusLabs.Forms.Controls
 {
 	public class TLScrollView : ScrollView
 	{
 		public static readonly BindableProperty ItemsSourceProperty =
-			BindableProperty.Create("ItemsSource", typeof(IEnumerable), typeof(TLScrollView), default(IEnumerable));
+            BindableProperty.Create("ItemsSource", typeof(IEnumerable), typeof(TLScrollView), default(IEnumerable), 
+                                    BindingMode.Default, null, new BindableProperty.BindingPropertyChangedDelegate(HandleBindingPropertyChangedDelegate));
 
-		public IEnumerable ItemsSource
+        private static object HandleBindingPropertyChangedDelegate(BindableObject bindable, object value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable ItemsSource
 		{
 			get { return (IEnumerable)GetValue(ItemsSourceProperty); }
 			set { SetValue(ItemsSourceProperty, value); }
@@ -46,7 +56,30 @@ namespace TitiusLabs.Forms.Controls
 			set { SetValue(SelectedCommandParameterProperty, value); }
 		}
 
-		public void Render()
+        static void HandleBindingPropertyChangedDelegate(BindableObject bindable, object oldValue, object newValue)
+        {
+			var isOldObservable = oldValue?.GetType().GetTypeInfo().ImplementedInterfaces.Any(i => i == typeof(INotifyCollectionChanged));
+			var isNewObservable = newValue?.GetType().GetTypeInfo().ImplementedInterfaces.Any(i => i == typeof(INotifyCollectionChanged));
+            if (isOldObservable.GetValueOrDefault(false))
+            {
+                var tl = (TLScrollView)bindable;
+                var nv = (INotifyCollectionChanged)oldValue;
+                nv.CollectionChanged -= tl.HandleCollectionChanged;
+			}
+			if (isNewObservable.GetValueOrDefault(false))
+			{
+				var tl = (TLScrollView)bindable;
+				var nv = (INotifyCollectionChanged)newValue;
+				nv.CollectionChanged += tl.HandleCollectionChanged;
+			}
+        }
+
+        private void HandleCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            Render();
+        }
+
+        public void Render()
 		{
 			if (ItemTemplate == null || ItemsSource == null)
 				return;

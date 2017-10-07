@@ -17,14 +17,19 @@ namespace TitiusLabs.Forms.iOS.Controls
 
 			if (Element == null)
 				return;
-			
+
+			var nativeControl = Platform.GetRenderer(Element.Content) as UIView;
+			AddSubview(nativeControl);
+		}
+
+		public override void Draw(CoreGraphics.CGRect rect)
+		{
+			base.Draw(rect);
+
 			Layer.MasksToBounds = true;
 			Layer.CornerRadius = (float)this.Element.CornerRadius / 2.0f;
 			Layer.BorderColor = this.Element.BorderColor.ToCGColor();
 			Layer.BorderWidth = (float)this.Element.BorderWidth;
-
-			var nativeControl = Platform.GetRenderer(Element.Content) as UIView;
-			AddSubview(nativeControl);
 		}
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using FormSamples.Core.Models;
 using FormSamples.Core.ViewModels;
+using TitiusLabs.Forms.Controls;
 using Xamarin.Forms;
 
 namespace FormSamples.Core.Views
@@ -14,7 +15,7 @@ namespace FormSamples.Core.Views
 		{
 			InitializeComponent();
 
-			this.BindingContext = new FormSamplesViewModel();
+			//this.BindingContext = new FormSamplesViewModel();
 		}
 
 		protected override void OnAppearing()
