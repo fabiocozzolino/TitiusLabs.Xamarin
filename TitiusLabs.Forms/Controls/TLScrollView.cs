@@ -60,18 +60,22 @@ namespace TitiusLabs.Forms.Controls
         {
 			var isOldObservable = oldValue?.GetType().GetTypeInfo().ImplementedInterfaces.Any(i => i == typeof(INotifyCollectionChanged));
 			var isNewObservable = newValue?.GetType().GetTypeInfo().ImplementedInterfaces.Any(i => i == typeof(INotifyCollectionChanged));
-            if (isOldObservable.GetValueOrDefault(false))
+
+			var tl = (TLScrollView)bindable;
+			if (isOldObservable.GetValueOrDefault(false))
             {
-                var tl = (TLScrollView)bindable;
-                var nv = (INotifyCollectionChanged)oldValue;
-                nv.CollectionChanged -= tl.HandleCollectionChanged;
+                ((INotifyCollectionChanged)oldValue).CollectionChanged -= tl.HandleCollectionChanged;
 			}
+
 			if (isNewObservable.GetValueOrDefault(false))
 			{
-				var tl = (TLScrollView)bindable;
-				var nv = (INotifyCollectionChanged)newValue;
-				nv.CollectionChanged += tl.HandleCollectionChanged;
+				((INotifyCollectionChanged)newValue).CollectionChanged += tl.HandleCollectionChanged;
 			}
+
+            if (oldValue != newValue)
+            {
+                tl.Render();
+            }
         }
 
         private void HandleCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
@@ -81,8 +85,11 @@ namespace TitiusLabs.Forms.Controls
 
         public void Render()
 		{
-			if (ItemTemplate == null || ItemsSource == null)
-				return;
+            if (ItemTemplate == null || ItemsSource == null)
+            {
+                Content = null;
+                return;
+            }
 
 			var layout = new StackLayout();
 			layout.Orientation = Orientation == ScrollOrientation.Vertical ? StackOrientation.Vertical : StackOrientation.Horizontal;

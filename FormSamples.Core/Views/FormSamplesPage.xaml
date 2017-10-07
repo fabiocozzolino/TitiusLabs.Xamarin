@@ -41,7 +41,10 @@
             </Label.GestureRecognizers>
         </Label>
 
-        <Button Text="My Button" Command="{Binding MyCommand}"  />
+        <Button Text="Add Random Image" Command="{Binding AddRandomImageCommand}"  />
+        <Button Text="Remove Random Image" Command="{Binding RemoveRandomImageCommand}"  />
+        <Button Text="Reset List" Command="{Binding ResetListCommand}"  />
+        <Button Text="Clear List" Command="{Binding ClearListCommand}"  />
 
 		<Button Text="Speak" Command="{Binding [Speak]}" CommandParameter="{Binding SelectedItem.Name}" />
 		<controls:RoundedBox 

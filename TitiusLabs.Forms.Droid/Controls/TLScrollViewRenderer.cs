@@ -3,7 +3,7 @@ using TitiusLabs.Forms.Droid.Controls;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRenderer(typeof(TLScrollView), typeof(TLScrollViewRenderer))]
+//[assembly: ExportRenderer(typeof(TLScrollView), typeof(TLScrollViewRenderer))]
 
 namespace TitiusLabs.Forms.Droid.Controls
 {
