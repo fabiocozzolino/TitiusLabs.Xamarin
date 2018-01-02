@@ -81,5 +81,30 @@ namespace TitiusLabs.Forms.ViewModels
 				return cmd;
 			}
 		}
+
+        public Action<ViewModelBase> OnNavigationRequest;
+        public Action<ViewModelBase> OnModalNavigationRequest;
+        public Action OnBackNavigationRequest;
+        public Action OnCloseNavigationRequest;
+
+        public void NavigateTo<TViewModel>(TViewModel targetViewModel) where TViewModel : ViewModelBase
+        {
+            OnNavigationRequest?.Invoke(targetViewModel);
+        }
+
+        public void NavigateToModal<TViewModel>(TViewModel targetViewModel) where TViewModel : ViewModelBase
+        {
+            OnModalNavigationRequest?.Invoke(targetViewModel);
+        }
+
+        public void NavigateBack() 
+        {
+            OnBackNavigationRequest?.Invoke();
+        }
+
+        public void Close()
+        {
+            OnCloseNavigationRequest?.Invoke();
+        }
 	}
 }

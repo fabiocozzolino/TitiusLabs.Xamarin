@@ -9,7 +9,7 @@ namespace FormSamples.Core
 		{
 			InitializeComponent();
 
-			MainPage = new FormSamplesPage();
+            MainPage = new NavigationPage(new MainPage());
 		}
 
 		protected override void OnStart()

@@ -38,10 +38,34 @@
     </Compile>
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ITextToSpeech.cs" />
+    <Compile Include="Views\NavigationFirstPage.xaml.cs">
+      <DependentUpon>NavigationFirstPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\NavigationFirstViewModel.cs" />
+    <Compile Include="ViewModels\NavigationSecondViewModel.cs" />
+    <Compile Include="Views\NavigationSecondPage.xaml.cs">
+      <DependentUpon>NavigationSecondPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\HomeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml" />
     <EmbeddedResource Include="Views\FormSamplesPage.xaml" />
+    <EmbeddedResource Include="Views\NavigationFirstPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\NavigationSecondPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TitiusLabs.Forms\TitiusLabs.Forms.csproj">

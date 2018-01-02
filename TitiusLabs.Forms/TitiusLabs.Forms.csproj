@@ -41,6 +41,8 @@
     <Compile Include="Controls\TLImageCircle.cs" />
     <Compile Include="Controls\TLImageCrop.cs" />
     <Compile Include="Controls\RoundedBox.cs" />
+    <Compile Include="Views\PageBase.cs" />
+    <Compile Include="Views\ViewResolver.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />

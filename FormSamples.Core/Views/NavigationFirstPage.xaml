@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views:PageBase xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:vm="clr-namespace:FormSamples.Core.ViewModels"
+    xmlns:views="clr-namespace:TitiusLabs.Forms.Views;assembly=TitiusLabs.Forms"
+    x:TypeArguments="vm:NavigationFirstViewModel"
+    x:Class="FormSamples.Core.Views.NavigationFirstPage">
+    <ContentPage.BindingContext>
+        <vm:NavigationFirstViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Command="{Binding CancelCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Button Text="Show SecondPage" Command="{Binding GoToSecondPageCommand}" />
+    </ContentPage.Content>
+</views:PageBase>
