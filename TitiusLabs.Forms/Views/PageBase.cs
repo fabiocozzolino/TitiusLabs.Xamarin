@@ -41,26 +41,26 @@ namespace TitiusLabs.Forms.Views
             ViewModel.OnCloseNavigationRequest = null;
         }
 
-        void HandleNavigationRequest(ViewModelBase targetViewModel)
+        async Task HandleNavigationRequest(ViewModelBase targetViewModel)
         {
             var targetView = ViewResolver.GetViewFor(targetViewModel);
-            Navigation.PushAsync(targetView).ConfigureAwait(true);
+            await Navigation.PushAsync(targetView);
         }
 
-        void HandleModalNavigationRequest(ViewModelBase targetViewModel)
+        async Task HandleModalNavigationRequest(ViewModelBase targetViewModel)
         {
             var targetView = ViewResolver.GetViewFor(targetViewModel);
-            Navigation.PushModalAsync(new NavigationPage(targetView)).ConfigureAwait(true);
+            await Navigation.PushModalAsync(new NavigationPage(targetView));
         }
 
-        void HandleBackNavigationRequest()
+        async Task HandleBackNavigationRequest()
         {
-            Navigation.PopAsync().ConfigureAwait(true);
+            await Navigation.PopAsync();
         }
 
-        void HandleCloseNavigationRequest()
+        async Task HandleCloseNavigationRequest()
         {
-            Navigation.PopModalAsync(true).ConfigureAwait(true);
+            await Navigation.PopModalAsync(true);
         }
     }
 }

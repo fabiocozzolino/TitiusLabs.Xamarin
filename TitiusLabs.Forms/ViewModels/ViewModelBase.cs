@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -82,29 +83,29 @@ namespace TitiusLabs.Forms.ViewModels
 			}
 		}
 
-        public Action<ViewModelBase> OnNavigationRequest;
-        public Action<ViewModelBase> OnModalNavigationRequest;
-        public Action OnBackNavigationRequest;
-        public Action OnCloseNavigationRequest;
+        public Func<ViewModelBase, Task> OnNavigationRequest;
+        public Func<ViewModelBase, Task> OnModalNavigationRequest;
+        public Func<Task> OnBackNavigationRequest;
+        public Func<Task> OnCloseNavigationRequest;
 
-        public void NavigateTo<TViewModel>(TViewModel targetViewModel) where TViewModel : ViewModelBase
+        public async Task NavigateTo<TViewModel>(TViewModel targetViewModel) where TViewModel : ViewModelBase
         {
-            OnNavigationRequest?.Invoke(targetViewModel);
+            await OnNavigationRequest?.Invoke(targetViewModel);
         }
 
-        public void NavigateToModal<TViewModel>(TViewModel targetViewModel) where TViewModel : ViewModelBase
+        public async Task NavigateToModal<TViewModel>(TViewModel targetViewModel) where TViewModel : ViewModelBase
         {
-            OnModalNavigationRequest?.Invoke(targetViewModel);
+            await OnModalNavigationRequest?.Invoke(targetViewModel);
         }
 
-        public void NavigateBack() 
+        public async Task NavigateBack() 
         {
-            OnBackNavigationRequest?.Invoke();
+            await OnBackNavigationRequest?.Invoke();
         }
 
-        public void Close()
+        public async Task Close()
         {
-            OnCloseNavigationRequest?.Invoke();
+            await OnCloseNavigationRequest?.Invoke();
         }
 	}
 }
