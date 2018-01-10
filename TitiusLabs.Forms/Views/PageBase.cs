@@ -44,12 +44,14 @@ namespace TitiusLabs.Forms.Views
         async Task HandleNavigationRequest(ViewModelBase targetViewModel)
         {
             var targetView = ViewResolver.GetViewFor(targetViewModel);
+            targetView.BindingContext = targetViewModel;
             await Navigation.PushAsync(targetView);
         }
 
         async Task HandleModalNavigationRequest(ViewModelBase targetViewModel)
         {
             var targetView = ViewResolver.GetViewFor(targetViewModel);
+            targetView.BindingContext = targetViewModel;
             await Navigation.PushModalAsync(new NavigationPage(targetView));
         }
 

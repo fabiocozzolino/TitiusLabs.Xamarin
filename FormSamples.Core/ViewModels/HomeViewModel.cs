@@ -15,7 +15,7 @@ namespace FormSamples.Core.ViewModels
 
         public MainViewModel()
         {
-            GoToSecondPageCommand = new Command(() => NavigateToModal(new NavigationFirstViewModel()));
+            GoToSecondPageCommand = new Command(async() => await NavigateToModal(new NavigationFirstViewModel()));
         }
     }
 }
