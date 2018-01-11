@@ -19,10 +19,12 @@ namespace FormSamples.Core.ViewModels
             set { SetValue(value); }
         }
 
+        public string Title { get { return GetValue<string>(); } set { SetValue(value); } }
+
         public NavigationFirstViewModel()
         {
-            GoToSecondPageCommand = new Command(() => NavigateTo(new NavigationSecondViewModel()));
-            CancelCommand = new Command(() => Close());
+            GoToSecondPageCommand = new Command(async () => await NavigateTo(new NavigationSecondViewModel(){ Title = "Second View Title"}));
+            CancelCommand = new Command(async () => await Close());
         }
     }
 }

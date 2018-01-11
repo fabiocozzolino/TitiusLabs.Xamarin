@@ -4,7 +4,8 @@
     xmlns:vm="clr-namespace:FormSamples.Core.ViewModels"
     xmlns:views="clr-namespace:TitiusLabs.Forms.Views;assembly=TitiusLabs.Forms"
     x:TypeArguments="vm:NavigationSecondViewModel"
-    x:Class="FormSamples.Core.Views.NavigationSecondPage">
+    x:Class="FormSamples.Core.Views.NavigationSecondPage"
+    Title="{Binding Title}">
     <ContentPage.BindingContext>
         <vm:NavigationSecondViewModel />
     </ContentPage.BindingContext>
