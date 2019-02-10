@@ -17,7 +17,12 @@ namespace TitiusLabs.Forms.Droid.Controls
 		private RectF _bounds;
 		private Path _path;
 
-		protected override void OnElementChanged(Xamarin.Forms.Platform.Android.ElementChangedEventArgs<RoundedBox> e)
+        public RoundedBoxRenderer(Android.Content.Context context):base(context)
+        {
+
+        }
+
+        protected override void OnElementChanged(Xamarin.Forms.Platform.Android.ElementChangedEventArgs<RoundedBox> e)
 		{
 			base.OnElementChanged(e);
 

@@ -10,7 +10,12 @@ namespace TitiusLabs.Forms.Droid.Controls
 
 	public class TLScrollViewRenderer : ScrollViewRenderer
 	{
-		protected override void OnElementChanged(VisualElementChangedEventArgs e)
+        public TLScrollViewRenderer(Android.Content.Context context):base(context)
+        {
+
+        }
+
+        protected override void OnElementChanged(VisualElementChangedEventArgs e)
 		{
 			base.OnElementChanged(e);
 

@@ -1,0 +1,11 @@
+﻿{
+  "dependencies": {
+    "System.Reflection": "4.3.0",
+    "Xamarin.Forms": "3.5.0.129452",
+    "NETStandard.Library": "1.6.0",
+    "Microsoft.NETCore.Portable.Compatibility": "1.0.1"
+  },
+  "frameworks": {
+    "netstandard1.5": {}
+  }
+}

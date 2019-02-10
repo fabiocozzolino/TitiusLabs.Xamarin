@@ -10,7 +10,11 @@ namespace TitiusLabs.Forms.Droid.Controls
 {
 	public class TLEntryRenderer : EntryRenderer
 	{
-		protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
+        public TLEntryRenderer(Android.Content.Context context):base(context)
+        {
+        }
+
+        protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
 		{
 			base.OnElementChanged(e);
 

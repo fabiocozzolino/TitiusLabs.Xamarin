@@ -1,75 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{525A9025-BEF6-42F3-ABA5-D01E8703C4B7}</ProjectGuid>
-    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <OutputType>Library</OutputType>
-    <RootNamespace>TitiusLabs.Forms</RootNamespace>
-    <AssemblyName>TitiusLabs.Forms</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\ViewModelBase.cs" />
-    <Compile Include="Views\IView.cs" />
-    <Compile Include="Converters\StringToColorConverter.cs" />
-    <Compile Include="Converters\ImageConverter.cs" />
-    <Compile Include="Converters\NoVisibilityConverter.cs" />
-    <Compile Include="Converters\DateFormatConverter.cs" />
-    <Compile Include="Converters\VisibilityConverter.cs" />
-    <Compile Include="Controls\TLEntry.cs" />
-    <Compile Include="Controls\ReturnButtonType.cs" />
-    <Compile Include="Controls\TLScrollView.cs" />
-    <Compile Include="Controls\TLImageCircle.cs" />
-    <Compile Include="Controls\TLImageCrop.cs" />
-    <Compile Include="Controls\RoundedBox.cs" />
-    <Compile Include="Views\PageBase.cs" />
-    <Compile Include="Views\ViewResolver.cs" />
+    <!--<PackageReference Include="" Version=""/>-->
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\" />
-    <Folder Include="Converters\" />
-    <Folder Include="Controls\" />
+    <Compile Remove="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TitiusLabs.Core\TitiusLabs.Core.csproj">
-      <Project>{7242D6E0-C5F3-48A4-BE98-2A95B87CDEB0}</Project>
-      <Name>TitiusLabs.Core</Name>
-    </ProjectReference>
+    <PackageReference Include="Xamarin.Forms" Version="3.5.0.129452" />
   </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Xamarin.Forms.Core">
-      <HintPath>..\packages\Xamarin.Forms.2.3.4.247\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Platform">
-      <HintPath>..\packages\Xamarin.Forms.2.3.4.247\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Platform.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Xaml">
-      <HintPath>..\packages\Xamarin.Forms.2.3.4.247\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Xaml.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <Import Project="..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
 </Project>
