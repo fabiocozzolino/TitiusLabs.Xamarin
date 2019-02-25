@@ -118,7 +118,7 @@ namespace TitiusLabs.Forms.Controls
                 var command = SelectedCommand ?? new Command((obj) =>
                 {
                     var args = new ItemTappedEventArgs(ItemsSource, item);
-                    SelectedItem = item;  // my code
+                    SelectedItem = item;  
                     ItemSelected?.Invoke(this, args);
                 });
                 var commandParameter = SelectedCommandParameter ?? item;
