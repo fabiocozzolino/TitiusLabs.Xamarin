@@ -12,6 +12,8 @@ namespace TitiusLabs.Forms.Controls
 {
     public class TLScrollView : ScrollView
     {
+        IList<object> templatedItems; 
+
         public static readonly BindableProperty ItemsSourceProperty =
             BindableProperty.Create("ItemsSource", typeof(IEnumerable), typeof(TLScrollView), default(IEnumerable),
                                     BindingMode.Default, null, new BindableProperty.BindingPropertyChangedDelegate(HandleBindingPropertyChangedDelegate));
@@ -37,6 +39,21 @@ namespace TitiusLabs.Forms.Controls
         }
 
         public event EventHandler<ItemTappedEventArgs> ItemSelected;
+
+        public static readonly BindableProperty SelectedItemProperty = BindableProperty.Create("SelectedItem", typeof(object), typeof(TLScrollView), null, BindingMode.OneWayToSource,
+    propertyChanged: OnSelectedItemChanged);
+
+        public object SelectedItem
+        {
+            get { return GetValue(SelectedItemProperty); }
+            set { SetValue(SelectedItemProperty, value); }
+        }
+
+        static void OnSelectedItemChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            IList<object> cells = ((TLScrollView)bindable).templatedItems;
+            ((TLScrollView)bindable).ItemSelected?.Invoke(bindable, new ItemTappedEventArgs(newValue, cells.IndexOf(newValue)));
+        }
 
         public static readonly BindableProperty SelectedCommandProperty =
             BindableProperty.Create("SelectedCommand", typeof(ICommand), typeof(TLScrollView), null);
@@ -91,6 +108,8 @@ namespace TitiusLabs.Forms.Controls
                 return;
             }
 
+            templatedItems = new List<object>();  
+            
             var layout = new StackLayout();
             layout.Orientation = Orientation == ScrollOrientation.Vertical ? StackOrientation.Vertical : StackOrientation.Horizontal;
 
@@ -99,6 +118,7 @@ namespace TitiusLabs.Forms.Controls
                 var command = SelectedCommand ?? new Command((obj) =>
                 {
                     var args = new ItemTappedEventArgs(ItemsSource, item);
+                    SelectedItem = item;  // my code
                     ItemSelected?.Invoke(this, args);
                 });
                 var commandParameter = SelectedCommandParameter ?? item;
@@ -113,6 +133,7 @@ namespace TitiusLabs.Forms.Controls
                 });
 
                 layout.Children.Add(viewCell.View);
+                templatedItems.Add(viewCell.View);  
             }
 
             Content = layout;
