@@ -27,7 +27,7 @@ namespace TitiusLabs.Forms.iOS.Controls
 			base.Draw(rect);
 
 			Layer.MasksToBounds = true;
-			Layer.CornerRadius = (float)this.Element.CornerRadius / 2.0f;
+			Layer.CornerRadius = (float)this.Element.CornerRadius / (float)UIScreen.MainScreen.Scale;
 			Layer.BorderColor = this.Element.BorderColor.ToCGColor();
 			Layer.BorderWidth = (float)this.Element.BorderWidth;
 		}
